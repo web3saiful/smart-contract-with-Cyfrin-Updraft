@@ -27,4 +27,22 @@ contract Array {
         arr.push(i);
     }
 
+    function pop() public {
+        // Remove last element from array
+        // This will decrease the array length by 1
+        arr.pop();
+    }
+
+    function getLength() public view returns (uint256) {
+        return arr.length;
+    }
+
+    function remove(uint256 index) public {
+        // Delete does not change the array length.
+        // It resets the value at index to it's default value,
+        // in this case 0
+        delete arr[index];
+    }
+
+
 }
