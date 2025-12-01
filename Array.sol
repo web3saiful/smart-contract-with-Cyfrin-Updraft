@@ -10,5 +10,21 @@ contract Array {
     // Fixed sized array, all elements initialize to 0
     uint256[10] public myFixedSizeArr;
 
+    function get(uint256 i) public view returns (uint256) {
+        return arr[i];
+    }
+
+    // Solidity can return the entire array.
+    // But this function should be avoided for
+    // arrays that can grow indefinitely in length.
+    function getArr() public view returns (uint256[] memory) {
+        return arr;
+    }
+
+    function push(uint256 i) public {
+        // Append to array
+        // This will increase the array length by 1.
+        arr.push(i);
+    }
 
 }
