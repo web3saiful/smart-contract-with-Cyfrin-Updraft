@@ -15,14 +15,14 @@ contract Receive{
 
 
 
-// contract sendingEther{
+contract sendingEther{
 
-// function sendingViaTransfer(address payable _to)public payable {
-//     _to.transfer(msg.value);
-//   }
+function sendingViaTransfer(address payable _to)public payable {
+    _to.transfer(msg.value);
+  }
 
-//   function sendViaSend(address payable _to)public payable {
-//     bool sent,""=_to.send(msg.value);
-//   }
+  function sendViaSend(address payable _to)public payable {
+    bool sent,""=_to.send(msgv);
+  }
 
-// }
+}
