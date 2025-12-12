@@ -8,6 +8,8 @@ contract Receiver {
         emit Received(msg.sender, msg.value, "Fallback was called");
     }
 
+    receive() external payable { }
+
     function foo(string memory _message, uint256 _x)
         public
         payable
@@ -19,11 +21,10 @@ contract Receiver {
     }
 }
 
+
 contract Caller {
     event Response(bool success, bytes data);
 
-    // Let's imagine that contract Caller does not have the source code for the
-    // contract Receiver, but we do know the address of contract Receiver and the function to call.
     function testCallFoo(address payable _addr) public payable {
         // You can send ether and specify a custom gas amount
         (bool success, bytes memory data) = _addr.call{
@@ -34,7 +35,6 @@ contract Caller {
         emit Response(success, data);
     }
 
-    // Calling a function that does not exist triggers the fallback function.
     function testCallDoesNotExist(address payable _addr) public payable {
         (bool success, bytes memory data) = _addr.call{value: msg.value}(
             abi.encodeWithSignature("doesNotExist()")
