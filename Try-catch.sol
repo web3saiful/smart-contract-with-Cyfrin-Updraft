@@ -13,4 +13,20 @@ contract Foo {
         return "my func was called";
     }
 }
+contract Bar {
+    event Log(string message);    
+    event LogBytes(bytes data);
+    Foo public foo;
+    constructor() {
 
+        foo = new Foo(msg.sender);
+    }
+    function tryCatchExternalCall(uint256 _i) public {
+        try foo.myFunc(_i) returns (string memory result) {
+            emit Log(result);
+        } catch {
+            emit Log("external call failed");
+        }   
+    }
+
+}
