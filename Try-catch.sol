@@ -28,5 +28,16 @@ contract Bar {
             emit Log("external call failed");
         }   
     }
-
+    function tryCatchNewContract(address _owner) public {
+        try new Foo(_owner) returns (Foo foo) {
+            // you can use variable foo here
+            emit Log("Foo created");
+        } catch Error(string memory reason) {
+            // catch failing revert() and require()
+            emit Log(reason);
+        } catch (bytes memory reason) {
+            // catch failing assert()
+            emit LogBytes(reason);
+        }
+    }
 }
