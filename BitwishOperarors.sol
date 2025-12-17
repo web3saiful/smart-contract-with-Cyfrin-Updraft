@@ -92,5 +92,18 @@ contract BitwiseOps {
         return i;
     }
 
-
+    // Get first n bits from x
+    // len = length of bits in x = position of most significant bit of x, + 1
+    function getFirstNBits(uint256 x, uint256 n, uint256 len)
+        external
+        pure
+        returns (uint256)
+    {
+        // Example
+        // x        = 1110 = 14, n = 2, len = 4
+        // mask     = 1100 = 12
+        // x & mask = 1100 = 12
+        uint256 mask = ((1 << n) - 1) << (len - n);
+        return x & mask;
+    }
 }
