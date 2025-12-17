@@ -82,7 +82,15 @@ contract BitwiseOps {
         return x % (1 << n);
     }
 
-
+    // Get position of most significant bit
+    // x = 1100 = 12, most significant bit = 1000, so this function will return 3
+    function mostSignificantBit(uint256 x) external pure returns (uint256) {
+        uint256 i = 0;
+        while ((x >>= 1) > 0) {
+            ++i;
+        }
+        return i;
+    }
 
 
 }
