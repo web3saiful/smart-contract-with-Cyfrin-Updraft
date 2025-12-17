@@ -12,6 +12,17 @@ contract GasGolf {
     // load array elements to memory - 48047 gas
     // uncheck i overflow/underflow - 47309 gas
 
+    uint256 public total;
 
+    // start - not gas optimized
+    // function sumIfEvenAndLessThan99(uint[] memory nums) external {
+    //     for (uint i = 0; i < nums.length; i += 1) {
+    //         bool isEven = nums[i] % 2 == 0;
+    //         bool isLessThan99 = nums[i] < 99;
+    //         if (isEven && isLessThan99) {
+    //             total += nums[i];
+    //         }
+    //     }
+    // }
 
 }
