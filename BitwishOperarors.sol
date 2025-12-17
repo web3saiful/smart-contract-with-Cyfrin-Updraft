@@ -58,4 +58,23 @@ contract BitwiseOps {
         return x >> bits;
     }
 
+    // Get last n bits from x
+    function getLastNBits(uint256 x, uint256 n)
+        external
+        pure
+        returns (uint256)
+    {
+        // Example, last 3 bits
+        // x        = 1101 = 13
+        // mask     = 0111 = 7
+        // x & mask = 0101 = 5
+        uint256 mask = (1 << n) - 1;
+        return x & mask;
+    }
+
+
+
+
+
+
 }
