@@ -44,4 +44,18 @@ contract BitwiseOps {
         return x << bits;
     }
 
+    // 8  >> 0 = 1000 --> 1000 = 8
+    // 8  >> 1 = 1000 --> 0100 = 4
+    // 8  >> 2 = 1000 --> 0010 = 2
+    // 8  >> 3 = 1000 --> 0001 = 1
+    // 8  >> 4 = 1000 --> 0000 = 0
+    // 12 >> 1 = 1100 --> 0110 = 6
+    function shiftRight(uint256 x, uint256 bits)
+        external
+        pure
+        returns (uint256)
+    {
+        return x >> bits;
+    }
+
 }
