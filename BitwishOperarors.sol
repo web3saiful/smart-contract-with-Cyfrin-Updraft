@@ -72,7 +72,15 @@ contract BitwiseOps {
         return x & mask;
     }
 
-
+    // Get last n bits from x using mod operator
+    function getLastNBitsUsingMod(uint256 x, uint256 n)
+        external
+        pure
+        returns (uint256)
+    {
+        // 1 << n = 2 ** n
+        return x % (1 << n);
+    }
 
 
 
