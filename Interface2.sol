@@ -13,4 +13,23 @@ contract CallInterface{
         ICounter(_counter).inc();
         count=ICounter(_counter).count();
     }
+
+}
+
+
+
+
+
+interface ICounter {
+    function count()external view returns(uint);
+    function inc()external;
+}
+
+contract CallInterface{
+    uint public count;
+
+    function examples(address _counter)external{
+        ICounter(_counter).inc();
+        count=ICounter(_counter).count();
+    }
 }
